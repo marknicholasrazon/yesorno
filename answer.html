@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width"/>
+  <meta charSet="utf-8"/>
+  <title>Yes or No - Tell your loved ones what you want</title>
+  <meta name="robots" content="follow, index"/>
+  <meta content="Tell your loved ones what you want" name="description"/>
+  <meta property="og:url" content="https://marknicholasrazon.github.io/yesorno"/>
+  <link rel="canonical" href="https://marknicholasrazon.github.io/yesorno"/>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Yes or No"/>
+  <meta property="og:description" content="Tell your loved ones what you want"/>
+  <meta property="og:title" content="Yes or No - Tell your loved ones what you want"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@Yes or No"/>
+  <meta name="twitter:title" content="Yes or No - Tell your loved ones what you want"/>
+  <meta name="twitter:description" content="Tell your loved ones what you want"/>
+  <meta name="twitter:image" content="/avatar.png"/>
+  <meta name="next-head-count" content="18"/>
+  <script src="https://cdn.jsdelivr.net/npm/js-sha256@0.9.0/build/sha256.min.js"></script>
+</head>
+<body>
+
+<div id="modal">
+  <div></div>
+</div>
+
+<div class="answer">
+	<div class="question">
+   
+  </div>
+  <div class="btn">
+    <button id="yes" onclick="yes()">yes</button>
+    <button id="no" onclick="randomizePosition()">no</button>
+  </div>
+  <div class="footer">
+    <div>
+      Made by Mark Nicholas Razon and Proposed by&nbsp;<u></u>
+    </div>
+  </div>
+</div>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const question = urlParams.get("question");
+  const message = urlParams.get("message");
+  const name = urlParams.get("name");
+
+  const questionDiv = document.querySelector(".question");
+  const messageDiv = document.querySelector("#modal > div");
+  const nameDiv = document.querySelector(".footer > div > u");
+  questionDiv.textContent = question;
+  messageDiv.textContent = message;
+  nameDiv.textContent = name;
+
+  document.title = name + " - Yes or No";
+
+  function yes() {
+    var answer = document.getElementById("no");
+    answer.style.display = "none";
+    document.getElementById("modal").style.display = "flex";
+  }
+  function randomizePosition() {
+    var answer = document.getElementById("no");
+    var newTop = Math.floor(Math.random() * 80);
+    var newLeft = Math.floor(Math.random() * 80);
+    answer.style.position = "absolute";
+    answer.style.top = newTop + "%";
+    answer.style.left = newLeft + "%";
+  }
+</script>
+</body>
+</html>
